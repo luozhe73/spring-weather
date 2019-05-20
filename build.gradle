@@ -27,4 +27,8 @@ dependencies {
     compileOnly 'org.projectlombok:lombok:1.18.2'
     testAnnotationProcessor 'org.projectlombok:lombok:1.18.2'
     testCompileOnly 'org.projectlombok:lombok:1.18.2'
+
+    // https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient
+    compile group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.5.8'
+
 }
