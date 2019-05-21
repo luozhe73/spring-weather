@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultrap.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>天气预报</title>
+</head>
+<body>
+<h3 th:text="${reportModel.title}"></h3>
+<select>
+    <option th:each="city : ${reportModel.cityList}"
+            th:value="${city.cityId}" th:text="${city.cityName}"
+            th:selected="${city.cityId eq reportModel.cityId}">
+    </option>
+</select>
+
+<h1 th:text="${reportModel.report.city}">城市名称</h1>
+<p>
+    当前温度:<span th:text="${reportModel.report.wendu}"></span>C
+</p>
+<p>
+    温馨提示:<span th:text="${reportModel.report.ganmao}"></span>
+</p>
+<div th:each="forecast:${reportModel.report.forecast}">
+    <div>
+        <p th:text="${forecast.date}">日期</p>
+        <p th:text="${forecast.type}">天气类型</p>
+        <p th:text="${forecast.high}">最高温度</p>
+        <p th:text="${forecast.low}">最低温度</p>
+        <p th:text="${forecast.fengxiang}">风向</p>
+    </div>
+</div>
+</body>
+</html>
